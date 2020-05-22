@@ -71,7 +71,7 @@ public class kayitOl extends JFrame {
 					JOptionPane.showMessageDialog(null, "Kullanýcý Kaydý Baþarýlý! \n \t Müþteri Numaranýz: "+ id);
 					Oneri form= new Oneri();
 					form.setVisible(true);
-					frame.dispose();
+					//frame.dispose();
 				}
 				
 			}

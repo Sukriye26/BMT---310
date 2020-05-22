@@ -69,6 +69,7 @@ public class girisYapGUI extends JFrame {
 				String sfre=String.valueOf(sifretxt.getPassword());
 				Musteri musteri=DAO.getInstance().girisYap(kullanici,sfre);
 				if(musteri!=null) {
+					JOptionPane.showMessageDialog(null, "Giriþ Baþarýlý!");
 					Oneri form = new Oneri();
 					form.setVisible(true);
 				}else {

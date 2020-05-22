@@ -7,7 +7,7 @@ public class AprioriConnection {
 	private static AprioriConnection instance = null;
 	private Connection con;
 
-	private AprioriConnection() {
+	AprioriConnection() {
 		try{
             Class.forName("oracle.jdbc.driver.OracleDriver");
 

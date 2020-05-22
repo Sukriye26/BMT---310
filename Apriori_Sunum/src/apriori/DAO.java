@@ -11,7 +11,7 @@ public class DAO {
 
 	private static DAO instance = null;
 
-	private DAO() {
+	DAO() {
 
 	}
 

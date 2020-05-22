@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Label;
 import javax.swing.JList;
+import java.awt.Color;
+import java.awt.Font;
 
 public class Oneri extends JFrame {
 	
@@ -51,40 +53,46 @@ public class Oneri extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 499, 677);
+		setBounds(100, 100, 734, 677);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("M\u00FC\u015Fteri ID:");
-		lblNewLabel.setBounds(0, 79, 87, 16);
+		lblNewLabel.setBounds(12, 104, 87, 16);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Birinci \u00DCr\u00FCn:");
-		lblNewLabel_1.setBounds(0, 108, 100, 16);
+		lblNewLabel_1.setBounds(12, 133, 100, 16);
 		contentPane.add(lblNewLabel_1);
 	    
 		JLabel label1 = new JLabel("\u00D6nerilen \u00DCr\u00FCn");
-		label1.setBounds(303, 33, 163, 16);
+		label1.setBounds(400, 33, 163, 16);
 		contentPane.add(label1);
 		
 		liste1=new JList();
-		liste1.setBounds(255, 62, 218, 133);
+		liste1.setBounds(315, 62, 378, 199);
 		contentPane.add(liste1);
 		
 		
 		idtext = new JTextField();
-		idtext.setBounds(112, 76, 116, 22);
+		idtext.setBounds(124, 101, 163, 22);
 		contentPane.add(idtext);
 		idtext.setColumns(10);
 		
 		uruntext = new JTextField();
-		uruntext.setBounds(112, 105, 116, 22);
+		uruntext.setBounds(124, 130, 163, 22);
 		contentPane.add(uruntext);
 		uruntext.setColumns(10);
 		
-		JButton ara = new JButton("ARA");
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel_3.setForeground(new Color(0, 0, 139));
+		lblNewLabel_3.setBounds(25, 248, 521, 60);
+		contentPane.add(lblNewLabel_3);
+		
+		JButton ara = new JButton("\u00D6NER\u0130 BUL");
 		ara.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int id=Integer.parseInt(idtext.getText());
@@ -97,13 +105,15 @@ public class Oneri extends JFrame {
 					
 					//System.out.println(musteri.getID());
 					urunListele(DAO.getInstance().urunBul(id, urun));
+					lblNewLabel_3.setText("Önerilen ürünü %10 indirimli olarak alabilirsiniz.");
 				}
 				else  {
 		
 					urunListele(DAO.getInstance().urunOner());
+					lblNewLabel_3.setText("Önerilen ürünleri %10 indirimli olarak alabilirsiniz.");
 					
 				}
-				label1.setText("Önerilen Ürün--->");
+				label1.setText("Önerilen Ürün");
 				//oneri_label.setText(urun2);
 			  
 				
@@ -113,14 +123,21 @@ public class Oneri extends JFrame {
 
 			
 		});
-		ara.setBounds(58, 152, 97, 25);
+		ara.setBounds(108, 179, 97, 25);
 		contentPane.add(ara);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		
 		lblNewLabel_2.setIcon(new ImageIcon(getClass().getResource("/yeni.jpg")));
-		lblNewLabel_2.setBounds(0, 0, 509, 630);
+		lblNewLabel_2.setBounds(0, 0, 487, 630);
 		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setIcon(new ImageIcon(getClass().getResource("/deneme.png")));
+		lblNewLabel_4.setBounds(478, 0, 238, 630);
+		contentPane.add(lblNewLabel_4);
+		
+		
 	}
 	
 	private void urunListele(ArrayList<String> urunler) { 
